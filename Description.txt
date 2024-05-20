@@ -1,0 +1,10 @@
+QA = Quality Assurance
+SOP = Standard Operating Procedure
+
+SOP is the golden documentation item in every QA department explaining how to work with certain devices (scale, photometer, spectrometer etc.) and how to apply standardized analytical methods in the lab (e. g. calculating the concentration of a certain drug in a system using a calibration curve). Think of it as a baking recipe, but for the lab :)
+
+SOPs usually have a standardized form, including version number, author, validator, aim of the method etc. At the same time, every SOP is different because it describes different devices and methods, where different troubleshooting factors have to be taken into account.
+
+With the help of AI the routine task of a QA-er can be done effortlessly and corrected according to the industry standards.
+
+By clicking RUN you’re going to interact with the interface and you’re going to submit your SOP then have the AI review it for you. Also, you can ask the assistant for tips in creating your SOP or ask anything else related to QA.

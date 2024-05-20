@@ -1,0 +1,2 @@
+python version = ??
+openai library = ??
