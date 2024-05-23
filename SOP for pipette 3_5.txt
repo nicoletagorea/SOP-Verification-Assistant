@@ -1,0 +1,42 @@
+Standard Operating Procedure (SOP) for Operating a Pipette
+Document Control
+Document ID: SOP-PIP-002
+Version: 1.0
+Date Prepared: 23.05.24
+Prepared by: John Doe
+Purpose
+This SOP provides basic instructions for using a pipette in a laboratory setting.
+
+Scope
+This procedure applies to all personnel who use pipettes within the laboratory.
+
+Responsibilities
+Users: Responsible for following the instructions outlined in this SOP.
+Supervisor: Ensures that all laboratory personnel are familiar with the use of pipettes.
+Equipment and Materials
+Pipette
+Tips for pipette
+Procedure
+Inserting the Tip
+
+Attach a new tip to the pipette by pressing the pipette into the tip.
+Ensure the tip is firmly attached.
+Drawing Liquid
+
+Press the plunger to the first stop.
+Immerse the tip into the liquid.
+Slowly release the plunger to draw the liquid into the tip.
+Dispensing Liquid
+
+Position the pipette tip over the container where the liquid will be dispensed.
+Press the plunger to the first stop to dispense the liquid.
+Press the plunger to the second stop to expel any remaining liquid.
+Ejecting the Tip
+
+Eject the used tip into an appropriate waste container.
+Cleaning
+Wipe the exterior of the pipette with a mild cleaner after use.
+Documentation
+Note usage in the lab notebook.
+Revision History
+Version 1.0, 23.05.24: Document created.
