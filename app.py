@@ -7,9 +7,9 @@ import datetime
 import constants
 
 # Set your OpenAI API key
-client1 = OpenAI(api_key= constants.API_KEY)
+client1 = OpenAI(api_key= constants.OPENAI_API_KEY)
 # MongoDB connection setup
-uri = constants.DB_KEY
+uri = constants.MONGODB_CONNECTION_STRING
 
 # Create a new client and connect to the server
 client = MongoClient(uri, server_api=ServerApi('1'))
