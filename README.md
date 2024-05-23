@@ -32,7 +32,7 @@ source venv/bin/activate  # On Windows: venv\Scripts\activate
 pip install -r requirements.txt
 
 4. Set up your environment variables:
-Create a constants.py file in a .gitignore file in the directory of the project and add your OpenAI API key and MongoDB connection string:
+Create a constants.py file in the directory of the project and add your OpenAI API key and MongoDB connection string:
 
 OPENAI_API_KEY=your_openai_api_key
 MONGODB_CONNECTION_STRING=your_mongodb_connection_string
@@ -55,7 +55,7 @@ Easter Egg: Enter the context "Odyssey" and ask "What is Python?" to see a speci
 SOP-Verification-Assistant/
 │
 ├── app.py                           # Main application script
-├── constants.py                     # file for your keys
+├── .gitignore                       # Protects your keys from being published on GitHub
 ├── README.md                        # This README file
 ├── .env                             # Environment variables
 ├── SOP for scale 4_5.txt            # Model SOP 4/5 rating
