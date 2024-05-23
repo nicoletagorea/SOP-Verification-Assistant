@@ -1,24 +1,40 @@
 from openai import OpenAI
 import streamlit as st
 from pymongo import MongoClient
+from pymongo.server_api import ServerApi
+import gridfs
 import datetime
+import constants
 
 # Set your OpenAI API key
-client = OpenAI(api_key= '...')
+client1 = OpenAI(api_key= constants.API_KEY)
 # MongoDB connection setup
-client = MongoClient("...")
-db = client.SOP
+uri = constants.DB_KEY
+
+# Create a new client and connect to the server
+client = MongoClient(uri, server_api=ServerApi('1'))
+db = client['SOP']
 responses = db.responses
 
+# Set up GridFS
+fs = gridfs.GridFS(db)
+
+try:
+    client.admin.command('ping')
+    print("Pinged your deployment. You successfully connected to MongoDB!")
+except Exception as e:
+    print(e)
+
 # Function to store response in MongoDB
-def store_response(context, question, answer):
+def store_response(context, question, response):
     document = {
         "context": context,
         "question": question,
-        "answer": answer,
+        "answer": response,
         "timestamp": datetime.datetime.now(datetime.UTC)
     }
-    responses.insert_one(document)
+    inserted_document = responses.insert_one(document)
+    return print(f"Inserted doc ID:{inserted_document.inserted_id}")
 
 # Function to verify SOP
 def verify_sop(text):
@@ -26,12 +42,12 @@ def verify_sop(text):
         {"role": "system", "content": "You are a helpful quality assurance assistant."},
         {"role": "user", "content": f"Verify the following SOP for completeness, accuracy, and compliance:\n\n{text}\n\nIdentify any missing sections or errors."}
     ]
-    response = client.chat.completions.create(
+    response = client1.chat.completions.create(
         model="gpt-3.5-turbo",
         messages=messages,
         max_tokens=300
     )
-    store_response(text, "Verify SOP", answer)
+    store_response(text, "Verify SOP", response.choices[0].message.content.strip())
     return response.choices[0].message.content.strip()
 
 # Function to answer QA questions
@@ -44,12 +60,12 @@ def answer_question(context, question):
         {"role": "system", "content": "You are a helpful assistant."},
         {"role": "user", "content": f"Context:\n{context}\n\nQuestion: {question}\nAnswer:"}
     ]
-    response = client.chat.completions.create(
+    response = client1.chat.completions.create(
         model="gpt-3.5-turbo",
         messages=messages,
         max_tokens=500
     )
-    store_response(context, question, answer)
+    store_response(context, question, response.choices[0].message.content.strip())
     return response.choices[0].message.content.strip()
 
 # Streamlit app layout
@@ -79,7 +95,7 @@ with st.expander("Want a surprise? 🎁"):
 
 if st.button("Get Answer"):
     if context and question:
-        answer = answer_question(context, question)
-        st.write("Answer:", answer)
+        response = answer_question(context, question)
+        st.write("Answer:", response)
     else:
         st.write("Please provide both context and a question.")
