@@ -79,6 +79,3 @@ Open a pull request.
 OpenAI for providing the GPT-3.5 model.
 Streamlit for the web application framework.
 MongoDB for the database solution.
-And ME, I worked my *** off for this project :))
-
-### Notes:
